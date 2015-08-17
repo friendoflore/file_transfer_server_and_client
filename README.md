@@ -1,14 +1,13 @@
-I. File list
-------------
-ftserver.c			File transfer server implementation
-ftclient.py			File transfer client implementation
-REAME					This file
+# File Transfer Server and Client
+## I. File list
+ftserver.c&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File transfer server implementation<br />
+ftclient.py&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File transfer client implementation<br />
+README.md&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This file<br />
 
 
-II. Program Instructions
-------------------------
+## II. Program Instructions
 
-A. Brief program overview
+#### A. Brief program overview
 
 This program consists of two programs running in conjunction, the server and 
 the client. The server accepts requests from the client and responds on over 
@@ -20,7 +19,7 @@ valid request. The server either sends a list of the ".txt" files in its
 current directory or sends a file requested by the client over the data
 connection.
 
-B. Compiling and running the server
+#### B. Compiling and running the server
 
 In order to run the server program on the server, the user must provide a port
 number that will serve as an endpoint for the command connection. This is one
@@ -50,7 +49,7 @@ refer to for the rest of this document is as follows:
 The server program then begins and notifies the user that the server is waiting
 for connections on port 53148.
 
-C. Running the client and establishing a command connection
+#### C. Running the client and establishing a command connection
 
 In order to run the client program, all of the relevant request information
 must be included in the program call. There are two commands that the user can
@@ -90,7 +89,7 @@ encountered is to ensure that both the server and client programs are
 exited, the server restarted, and the client run again using a different data
 port.
 
-D. Client and server connections
+#### D. Client and server connections
 
 The two possible connections between the server and the client are the 
 command connection and the data connection. The command connection is
@@ -118,7 +117,7 @@ by the server, error messages are transmitted to the client over the command
 connection. All successful command responses are given over the data 
 connection, from server to client.
 
-E. Client requests of the server and responses from the server.
+#### E. Client requests of the server and responses from the server.
 
 The client can request either a list of the ".txt" files in the server's
 directory or the client can request a specific ".txt" file in the server's 
@@ -133,7 +132,7 @@ connection. If the file is found by the server, the file is sent to the client
 line by line over the data connection, according to a specific protocol 
 outlined below in II.F and II.G.
 
-F. File transfer sending from the server
+#### F. File transfer sending from the server
 
 Assuming that the file name included in the message sent from the client to the
 server is valid and is found in the server's directory, the server sends the 
@@ -157,7 +156,7 @@ maximum file size that can be sent reliably over the data connection between
 the server and client is roughly 2 GB (2147483648 Bytes, to be exact), due to
 the use of exactly 4 bytes to encode the file size.
 
-G. File transfer receiving by the client
+#### G. File transfer receiving by the client
 
 Upon receiving a file over the data connection, the client knows that the first
 4 bytes of data received will contain the exact size of the incoming file that
@@ -177,8 +176,7 @@ file requested and the file received, though this can be verified by the users
 of both the server and the client programs.
 
 
-III. Implementation notes
--------------------------
+## III. Implementation notes
 
 A basis from which this program derived its initial structure came from an
 earlier project of mine involving data streams in communication between a
@@ -210,12 +208,11 @@ using the name "localhost" as the server name in the appropriate command line
 argument.
 
 
-IV. References
---------------
+## IV. References
 
-A.	Beej's Guide to Network Programming | Using Internet Sockets
-	Brian "Beej Jorgensen" Hall
-	http://beej.us/guide/bgnet/output/html/singlepage/bgnet.html
+##### A. Beej's Guide to Network Programming | Using Internet Sockets
+Brian "Beej Jorgensen" Hall<br />
+http://beej.us/guide/bgnet/output/html/singlepage/bgnet.html
 
 	1. This resource was used for proper syntax and structure for a program
 	implementing internet sockets to accomplish network programming tasks.
@@ -236,10 +233,10 @@ A.	Beej's Guide to Network Programming | Using Internet Sockets
 	in this resource, though the program was ultimately built to accomplish the
 	operation outlined in II.A-G. 
 
-B. CS 372 Lecture #15 | Socket Programming Primer
-	Oregon State University, Summer 2015
-	https://courses.ecampus.oregonstate.edu/index.php?video=cs372/15.mp4
-		(login required)
+##### B. CS 372 Lecture #15 | Socket Programming Primer
+Oregon State University, Summer 2015<br />
+https://courses.ecampus.oregonstate.edu/index.php?video=cs372/15.mp4<br />
+&nbsp;&nbsp;&nbsp;(login required)<br />
 
 	1. This resource was used for proper syntax and structure for a program
 	implementing internet sockets to accomplish network programming tasks.
@@ -255,9 +252,9 @@ B. CS 372 Lecture #15 | Socket Programming Primer
 	the program was ultimately built to accomplish the operation outlined in 
 	II.A-G.
 
-C. How to list files in a directory in a C program?
-	Responding user: Jean-Bernard Jansen on November 17, 2010
-	http://stackoverflow.com/questions/4204666/how-to-list-files-in-a-directory-in-a-c-program
+##### C. How to list files in a directory in a C program?
+Responding user: Jean-Bernard Jansen on November 17, 2010<br />
+http://stackoverflow.com/questions/4204666/how-to-list-files-in-a-directory-in-a-c-program
 
 	1. This resource was used for proper syntax and structure for a program 
 	implementing iteration through the file contents of the current working
@@ -273,9 +270,9 @@ C. How to list files in a directory in a C program?
 	another in order to accomplish the processing of the ".txt" files located
 	in the server's current directory.
 
-D. How to Compare Last n Characters of A String to Another String in C
-	Responding user: Oliver Charlesworth on March 14, 2011
-	// http://stackoverflow.com/questions/5297248/how-to-compare-last-n-characters-of-a-string-to-another-string-in-c
+##### D. How to Compare Last n Characters of A String to Another String in C
+Responding user: Oliver Charlesworth on March 14, 2011<br />
+http://stackoverflow.com/questions/5297248/how-to-compare-last-n-characters-of-a-string-to-another-string-in-c
 
 	1. This resource was used for proper syntax and structure for a program
 	implementing the comparison of the final four characters of a string to
@@ -287,10 +284,9 @@ D. How to Compare Last n Characters of A String to Another String in C
 	the server was only giving ".txt" files and file listings to the client
 	upon the client's request.
 
-E. C read file line by line
-	Responding user: mbaitoff on August 17, 2010, edited by user Octopus on 
-		September 19, 2014
-	http://stackoverflow.com/questions/3501338/c-read-file-line-by-line
+##### E. C read file line by line
+Responding user: mbaitoff on August 17, 2010, edited by user Octopus on September 19, 2014
+http://stackoverflow.com/questions/3501338/c-read-file-line-by-line
 
 	1. This resource was used for the proper syntax and structure for a program
 	implementing the iteration, line by line, through a file. This resource was
@@ -310,9 +306,9 @@ E. C read file line by line
 	to effectively process the file contents in sending the requested file from 
 	the server to the client.
 
-F. How can I get a file's size in C? [duplicate]
-	Responding user: Greg Hewgill on October 26, 2008
-	http://stackoverflow.com/questions/238603/how-can-i-get-a-files-size-in-c
+##### F. How can I get a file's size in C? [duplicate]
+Responding user: Greg Hewgill on October 26, 2008<br />
+http://stackoverflow.com/questions/238603/how-can-i-get-a-files-size-in-c
 
 	1. This resource was used for the proper syntax and structure for a program
 	obtaining the size of a specific file.
@@ -327,10 +323,9 @@ F. How can I get a file's size in C? [duplicate]
 	function in IV.F.2 in conjunction with one another to obtain the file size
 	of the client's requested file.
 
-G. Converting an int into a 4 byte char array (C)
-	Responding user: caf on September 24, 2010, edited by betabandido on
-		June 7, 2012
-	http://stackoverflow.com/questions/3784263/converting-an-int-into-a-4-byte-char-array-c
+##### G. Converting an int into a 4 byte char array (C)
+Responding user: caf on September 24, 2010, edited by betabandido on June 7, 2012<br />
+http://stackoverflow.com/questions/3784263/converting-an-int-into-a-4-byte-char-array-c
 
 	1. This resource was used for the proper syntax and structure for a program
 	implementing the conversion of an integer to a 4-byte char array. This 
@@ -348,7 +343,7 @@ G. Converting an int into a 4 byte char array (C)
 	measure of the file size to every file requested so the client knows 
 	exactly how long to continue accepting packets of data.
 
-H. Invalid argument exception in socket.accept() if I restart immediately after a previous run quit
+##### H. Invalid argument exception in socket.accept() if I restart immediately after a previous run quit
 Responding user: cnicutar on February 13, 2013
 
 	1. This resource was used for the proper syntax and structure of the 
@@ -358,9 +353,9 @@ Responding user: cnicutar on February 13, 2013
 	2. This resource was used in the understanding of the SO_REUSEADDR option in
 	the socket layer in Python.
 
-I. Python Socket Receive Large Amount of Data
-	Responding user: Adam Rosenfield on July 16, 2013
-	http://stackoverflow.com/questions/17667903/python-socket-receive-large-amount-of-data
+##### I. Python Socket Receive Large Amount of Data
+Responding user: Adam Rosenfield on July 16, 2013<br />
+http://stackoverflow.com/questions/17667903/python-socket-receive-large-amount-of-data
 
 	1. This resource was used for the proper syntax and structure of a program
 	implementing a large file transfer protocol in defining a specific function
@@ -389,9 +384,8 @@ I. Python Socket Receive Large Amount of Data
 	variable, which later in the client program is written to complete the file
 	transfer.
 
-J. How to list all files of a directory in Python
-	Responding user: pycruft on July 8, 2010, edited by Neftas on
-		April 28, 2014
+##### J. How to list all files of a directory in Python
+Responding user: pycruft on July 8, 2010, edited by Neftas on April 28, 2014
 
 	1. This resource was used in the understanding and use of a program that
 	can get current directory file contents and iterate through them.
@@ -399,8 +393,3 @@ J. How to list all files of a directory in Python
 	2. This resource aided in the use of the listdir function in order for the
 	client program to verify that the file request entered by the user is not
 	already present in their current directory.
-
-K.	https://courses.cs.washington.edu/courses/cse326/02wi/homework/hw5/README-3.txt
-
-	1. This resource was used as a template example of how to structure a README
-	file.
